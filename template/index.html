@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Traffic Volume Estimation</title>
+</head>
+<body background="https://cdn.vox-cdn.com/thumbor/voARJfEKvTp6iMSzW3ExPn06TDM=/0x78:3000x1766/1600x900/cdn.vox-cdn.com/uploads/chorus_image/image/44219366/72499026.0.0.jpg" text="black">
+
+<div class="login">
+  <center><h1>Traffic Volume Estimation</h1></center>
+  <form action="{{ url_for('predict') }}" method="post">
+    <h2>Please enter the following details</h2>
+
+    <label for="holiday">Holiday:</label>
+    <select id="holiday" name="holiday">
+      <option value="None">None</option>
+      <option value="Columbus Day">Columbus Day</option>
+      <option value="Veterans Day">Veterans Day</option>
+      <option value="Thanksgiving Day">Thanksgiving Day</option>
+      <option value="Christmas Day">Christmas Day</option>
+      <option value="New Years Day">New Years Day</option>
+      <option value="Washingtons Birthday">Washingtons Birthday</option>
+      <option value="Memorial Day">Memorial Day</option>
+      <option value="Independence Day">Independence Day</option>
+      <option value="State Fair">State Fair</option>
+      <option value="Labor Day">Labor Day</option>
+      <option value="Martin Luther King Jr Day">Martin Luther King Jr Day</option>
+    </select>
+    <br><br>
+
+    <label>Temp:</label>
+    <input type="number" name="temp" placeholder="Temperature" step="any" required /><br><br>
+
+    <label>Rain:</label>
+    <input type="number" name="rain" placeholder="Rain (0 or 1)" step="any" min="0" max="1" required /><br><br>
+
+    <label>Snow:</label>
+    <input type="number" name="snow" placeholder="Snow (0 or 1)" step="any" min="0" max="1" required /><br><br>
+
+    <label for="weather">Weather:</label>
+    <select id="weather" name="weather">
+      <option value="Clouds">Clouds</option>
+      <option value="Clear">Clear</option>
+      <option value="Rain">Rain</option>
+      <option value="Drizzle">Drizzle</option>
+      <option value="Mist">Mist</option>
+      <option value="Haze">Haze</option>
+      <option value="Fog">Fog</option>
+      <option value="Thunderstorm">Thunderstorm</option>
+      <option value="Snow">Snow</option>
+      <option value="Squall">Squall</option>
+      <option value="Smoke">Smoke</option>
+    </select>
+    <br><br>
+
+    <label>Year:</label>
+    <input type="number" name="year" min="2012" max="2022" required /><br><br>
+
+    <label>Month:</label>
+    <input type="number" name="month" min="1" max="12" required /><br><br>
+
+    <label>Day:</label>
+    <input type="number" name="day" min="1" max="31" required /><br><br>
+
+    <label>Hours:</label>
+    <input type="number" name="hours" min="0" max="23" required /><br><br>
+
+    <label>Minutes:</label>
+    <input type="number" name="minutes" min="0" max="59" required /><br><br>
+
+    <label>Seconds:</label>
+    <input type="number" name="seconds" min="0" max="59" required /><br><br>
+
+    <button type="submit" style="height:30px;width:200px">Predict</button>
+  </form>
+
+  {% if result %}
+    <h2>{{ result }}</h2>
+  {% endif %}
+
+  <br><br>
+  <img src="data:image/png;base64,{{url_3}}" alt="" height="180" width="233" onerror="this.style.display='none'"/>
+  <img src="data:image/png;base64,{{url_1}}" alt="" height="180" width="233" onerror="this.style.display='none'"/>
+  <img src="data:image/png;base64,{{url_4}}" alt="" height="180" width="233" onerror="this.style.display='none'"/>
+  <br><br>
+  <img src="data:image/png;base64,{{url_2}}" alt="" height="150" width="711" onerror="this.style.display='none'"/>
+</div>
+
+</body>
+</html>
